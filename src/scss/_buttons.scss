@@ -1,0 +1,182 @@
+// transform 0.4s cubic-bezier(0.1, 0, 0.3, 1)
+
+a, button{
+    border: 0;
+    outline: 0;
+}
+
+button {
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+
+    &.image-button{        
+        img{
+            height: 2em;
+        }
+    }
+
+    &.lozenge{
+        position: relative;
+        border: 0;
+        font-size: 0.8em;
+        border-radius: 2.2em;
+        margin: 0;
+        padding: 1.1em 3.6em;
+        line-height: 1;
+        background-color: black;
+        color: white;
+        overflow: clip;
+        // overflow: hidden;
+        cursor: pointer;
+        transition: background 0.4s ease-out;
+
+        &::after,
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 1;
+        }
+
+        &::before {
+            content: '';
+            width: 120%;
+            height: 0;
+            padding-bottom: 120%;
+            top: -110%;
+            left: -10%;
+            border-radius: 50%;
+            transform: translateY(68%) scale(0);
+        }
+
+        &::after {
+            content: '';
+            width: 120%;
+            height: 0;
+            padding-bottom: 120%;
+            top: -110%;
+            left: -10%;
+            border-radius: 50%;
+
+            transform: translateY(-90%);
+            transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+        }
+
+        span {
+            user-select: none;
+            display: block;
+            position: relative;
+            mix-blend-mode: difference;
+            z-index: 10;
+            transition: color 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+        }
+
+        &:hover {
+            
+            background-color: white;
+            &.white{
+                background-color: black;
+            }
+            &.grey-hover{
+                background-color: #646464;
+            }
+            transition: background 0.4s ease-in;
+
+            
+            &::before {
+                transform: translateY(0) scale(1);
+                transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+            }
+
+            &::after {
+                transform: translateY(-20%);
+                transition-duration: 0.05s;
+                transition-delay: 0.4s;
+                transition-timing-function: linear;
+            }
+        }
+
+        &.white {
+            background-color: white;
+
+            &::before,
+            &::after {
+                background-color: black;
+            }
+
+            &.grey-hover{
+                &::before,
+                &::after {
+                    background-color: #646464;
+                }
+
+                &:hover {
+                    span{
+                        color: #fff;
+                    }
+                }
+
+                span{
+                    mix-blend-mode: normal;
+                    color: black;
+                }
+            }
+        }
+    }
+
+    &.simple {
+        font-size: inherit;
+        text-decoration: underline;
+        transform: translateX(0px);
+        transition: color 0.4s cubic-bezier(0.3, 0, 0.1, 1);
+        color: #d8d8d8;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+p.underlined {
+    font-weight: 300;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.opacity-hover {
+
+    transition: opacity 0.3s ease-in;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.4;
+        transition: opacity 0.3s ease-out;
+    }
+
+    &.grey-to-white{
+        opacity: 0.4;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.button-container{
+    position: absolute;
+    bottom: 3em;
+
+    color: black;
+
+
+    .button{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

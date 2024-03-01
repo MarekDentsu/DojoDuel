@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.scss'
-import {data} from './data.js'
-import Card from './components/Card.jsx'
+import { data } from './data.js'
+// import Card from './components/Card.jsx'
+import SlimShady from './components/SlimShady.jsx'
+import logoImageURL from './assets/dojo-vertical.svg'
 
 function App() {
   const [cardData, setCardData] = useState({
@@ -23,17 +25,17 @@ function App() {
   })
 
   const updateCard = (type) => {
-    return data[type][ Math.round( Math.random() * data[type].length ) ]    
+    return data[type][Math.round(Math.random() * data[type].length)]
   }
 
-  const updateCards = () => {    
+  const updateCards = () => {
     setCardData({
-      Technology: {...updateCard("Technology")}, 
-      Behaviour: {...updateCard("Behaviour")}, 
-      Outcome: {...updateCard("Outcome")}
+      Technology: { ...updateCard("Technology") },
+      Behaviour: { ...updateCard("Behaviour") },
+      Outcome: { ...updateCard("Outcome") }
     })
   }
-  
+
   useEffect(
     () => {
       updateCards()
@@ -43,9 +45,16 @@ function App() {
 
   return (
     <>
-      <Card type="Technology" data={cardData.Technology} />
+      {/* <Card type="Technology" data={cardData.Technology} />
       <Card type="Behaviour" data={cardData.Behaviour} />
-      <Card type="Outcome" data={cardData.Outcome} />
+      <Card type="Outcome" data={cardData.Outcome} /> */}
+      <SlimShady />
+      <img className='logo' src={logoImageURL} />
+      <div className='button-container'>
+        {/* <button className='lozenge white grey-hover'>
+          <span>Shuffle</span>
+        </button> */}
+      </div>
     </>
   )
 }

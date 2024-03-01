@@ -1,0 +1,66 @@
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.flex-2-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    > div,
+    > p{
+        flex-basis: 48%;
+    }
+
+    @media only screen and (max-width: 720px){
+        flex-direction: column;
+
+        > div {
+            flex-basis: 100%;
+        }
+    }
+}
+
+.flex-align-vertical{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+.absolute {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    position: relative;
+
+    &.black {
+        background-color: #000;
+        color: white;
+    }
+
+    &.grey{
+        background-color: #646464;
+    }
+}
+
+.video-background {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+h1>div,
+h2>div {
+    overflow: hidden;
+    // background: red;
+}
