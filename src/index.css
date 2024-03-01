@@ -26,15 +26,11 @@ body {
   position: fixed;
   overflow: hidden;
   overscroll-behavior-y: none;
-  /* font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif; */
   color: black;
   -webkit-font-smoothing: antialiased;
-  /* background: #333; */
-  /* background: url(assets/background.jpg) no-repeat; */
   background-size: cover;
   background-position: center;
   background: radial-gradient(circle at center, #555 0,  #000 100%)
-  
 }
 
 

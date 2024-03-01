@@ -26,7 +26,7 @@ function Card({ position = [0, 0, 0], ...props }) {
         const isUp = (cardState + 1) % 3;
         if (isUp) {
             if(isUp === 1){
-                gsap.to(ref.current.position, { duration: 0.6, y: 1, ease: Power2.easeInOut })
+                gsap.to(ref.current.position, { duration: 0.6, y: 1, z: 0.75, ease: Power2.easeInOut })
                 gsap.to(ref.current.rotation, { duration: 0.4, x: Math.PI * 0.67, ease: Power2.easeInOut, delay: 0.2 })
             }
             if(isUp === 2){
@@ -36,9 +36,8 @@ function Card({ position = [0, 0, 0], ...props }) {
             // setIntensity(0.5)
             // setRotationIntensity(0.25)
         } else {
-            gsap.to(ref.current.position, { duration: 0.8, y: -0.48, ease: Power2.easeInOut })
-            gsap.to(ref.current.rotation, { duration: 0.6, x: Math.PI * 0.5, ease: Power2.easeInOut })
-            gsap.to(ref.current.rotation, { duration: 0.6, y: 0, ease: Power2.easeInOut })
+            gsap.to(ref.current.position, { duration: 0.8, y: -0.48, z: 0, ease: Power2.easeInOut })
+            gsap.to(ref.current.rotation, { duration: 0.6, x: Math.PI * 0.5, y: 0, ease: Power2.easeInOut })
             setIntensity(0)
             setRotationIntensity(0)
         }
@@ -80,7 +79,7 @@ function Card({ position = [0, 0, 0], ...props }) {
 function Cards({ number = 3 }) {
     // const normalsMap = useLoader(TextureLoader, paperURL)
     const positions = useMemo(() => [...new Array(number)].map((item, i) => [
-        -2.5 + (i * 7 / number),
+        -2.35 + (i * 7 / number),
         -0.5,
         0
     ]), [])

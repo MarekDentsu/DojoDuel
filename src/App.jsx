@@ -55,6 +55,13 @@ function App() {
           <span>Shuffle</span>
         </button> */}
       </div>
+
+      <div className='header'>
+        <div className='flex-row'>
+          <h1>Dojo Duel</h1>
+          <h3>A card game <br />like never before.</h3>
+        </div>
+      </div>
     </>
   )
 }
