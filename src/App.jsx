@@ -15,6 +15,7 @@ function App() {
     Behaviour: {
       name: "",
       fact: "",
+      WhatIf: "",
       example: ""
     },
     Outcome: {
@@ -25,7 +26,7 @@ function App() {
   })
 
   const updateCard = (type) => {
-    return data[type][Math.round(Math.random() * data[type].length)]
+    return data[type][Math.floor(Math.random() * data[type].length)]
   }
 
   const updateCards = () => {
@@ -34,32 +35,47 @@ function App() {
       Behaviour: { ...updateCard("Behaviour") },
       Outcome: { ...updateCard("Outcome") }
     })
+    console.log(cardData);
   }
 
   useEffect(
     () => {
       updateCards()
-      console.log(cardData);
     }, []
   )
+
+  const [isShuffling, setIsShuffling] = useState(false)
+  const shuffle = () => {
+    console.log("shuffle")
+    if(!isShuffling){
+      setIsShuffling(true)
+      setTimeout(() => {
+        updateCards()
+      }, 500);
+      setTimeout(() => {
+        setIsShuffling(false)
+      }, 1200);
+    }
+  }
 
   return (
     <>
       {/* <Card type="Technology" data={cardData.Technology} />
       <Card type="Behaviour" data={cardData.Behaviour} />
       <Card type="Outcome" data={cardData.Outcome} /> */}
-      <SlimShady />
+      <SlimShady cardData={cardData} isShuffling={isShuffling} />
+
       <img className='logo' src={logoImageURL} />
       <div className='button-container'>
-        {/* <button className='lozenge white grey-hover'>
+        <button className='lozenge white grey-hover' onClick={() => {shuffle()}}>
           <span>Shuffle</span>
-        </button> */}
+        </button>
       </div>
 
       <div className='header'>
         <div className='flex-row'>
           <h1>Dojo Duel</h1>
-          <h3>A card game <br />like never before.</h3>
+          <p>A card game <br />like never before.</p>
         </div>
       </div>
     </>
