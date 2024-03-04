@@ -3,6 +3,8 @@ import './App.scss'
 import { data } from './data.js'
 import DojoDuel from './components/DojoDuel.jsx'
 import logoImageURL from './assets/dojo-vertical.svg'
+import logoURL from "./assets/dojo-vertical-black.svg"
+
 
 function App() {
   const [cardData, setCardData] = useState({
@@ -94,6 +96,7 @@ function App() {
           <p>A card game <br />like never before.</p> */}
         </div>
       </div>
+      <img src={logoURL} className='hidden logo-image' />
     </>
   )
 }

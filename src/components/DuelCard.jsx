@@ -2,7 +2,6 @@ import { gsap, Power2, Power3 } from "gsap"
 import { useRef, useState, useEffect } from "react"
 import { BoxBlendGeometry } from "./BoxBlendGeometry.jsx"
 import { Decal, useTexture } from "@react-three/drei"
-import logoURL from "../assets/dojo-vertical-black.svg"
 
 export const DuelCard = (props) => {
     const cardRef = useRef()
@@ -19,13 +18,6 @@ export const DuelCard = (props) => {
             ctx: null,
             ref: useRef()
         }
-    }
-
-    const [logoImageLoaded, setLogoImageLoaded] = useState(false)
-    const logoImg = document.createElement("img")
-    logoImg.src = logoURL
-    logoImg.onload = () => {
-        setLogoImageLoaded(true)
     }
 
     textures.front.canvas.width = 800
@@ -50,17 +42,12 @@ export const DuelCard = (props) => {
     /**
      * FLIP CARD STATE
      */
-    const [cardState, setCardState] = useState(0)
     const flipCard = (n) => {
-        const isFlip = (n || n === 0) ? n : (cardState + 1) % 2;
-        if (isFlip) {
-            
+        if (cardRef.current.rotation.y === 0) {
             gsap.to(cardRef.current.rotation, { duration: 0.6, y: Math.PI * 1, ease: Power2.easeInOut })
-            
         } else {
             gsap.to(cardRef.current.rotation, { duration: 0.6, y: 0, ease: Power2.easeInOut })
         }
-        setCardState(isFlip)
     }
     const showCard = () => {
         gsap.to(cardRef.current.position, { duration: 0.8, y: 1.4, z: 1.0, ease: Power2.easeInOut })
@@ -241,8 +228,9 @@ export const DuelCard = (props) => {
         }
 
         // draw logo on card
-        if(logoImageLoaded){
-            textures.back.ctx.drawImage(logoImg, styles.padding, textures.back.canvas.height - styles.padding - 230, 120, 230)
+        const logoImage = document.querySelector(".logo-image")
+        if(logoImage){
+            textures.back.ctx.drawImage(logoImage, styles.padding, textures.back.canvas.height - styles.padding - 230, 120, 230)
         }
 
 
@@ -255,13 +243,14 @@ export const DuelCard = (props) => {
     useEffect(
         () => {
             setContexts();
-
             if (props.data) {
                 let FontDelay = { alpha: 0 }
                 gsap.to(FontDelay, {
                     duration: 0.1, alpha: 1, onUpdate: () => {
-                        drawCardTextures(FontDelay.alpha)
+                        drawCardTextures()
                         cardRef.current.rotation.y = 0;
+                    }, onComplete: () => {
+                        // setCardState(0)
                     }, ease: Power2.easeOut
                 })
             }
