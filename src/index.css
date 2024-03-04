@@ -30,7 +30,8 @@ body {
   -webkit-font-smoothing: antialiased;
   background-size: cover;
   background-position: center;
-  background: radial-gradient(circle at center, #555 0,  #000 100%)
+  background: radial-gradient(circle at center, #444 0,  #000 100%)
+  /* background-image: url(/images/background.jpg); */
 }
 
 

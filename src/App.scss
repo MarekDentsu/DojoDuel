@@ -231,3 +231,23 @@ h3,
         }
     }
 }
+
+
+
+.button-container{
+    position: absolute;
+    bottom: 3em;
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+
+    color: black;
+
+
+    button{
+        &:first-child{
+            margin-right: 3em;
+        }
+    }
+}

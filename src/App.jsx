@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.scss'
 import { data } from './data.js'
-// import Card from './components/Card.jsx'
-import SlimShady from './components/SlimShady.jsx'
+import DojoDuel from './components/DojoDuel.jsx'
 import logoImageURL from './assets/dojo-vertical.svg'
 
 function App() {
@@ -21,61 +20,78 @@ function App() {
     Outcome: {
       name: "",
       fact: "",
-      example: ""
+      howMight: ""
+    },
+    WildCard: {
+      name: "",
+      fact: ""
     }
   })
 
   const updateCard = (type) => {
-    return data[type][Math.floor(Math.random() * data[type].length)]
+    const _data = data[type][Math.floor(Math.random() * data[type].length)]
+    // console.log(_data)
+    return _data
   }
 
   const updateCards = () => {
     setCardData({
       Technology: { ...updateCard("Technology") },
       Behaviour: { ...updateCard("Behaviour") },
-      Outcome: { ...updateCard("Outcome") }
+      Outcome: { ...updateCard("Outcome") },
+      WildCard: { ...updateCard("WildCard") }
     })
-    console.log(cardData);
+    // console.log(cardData);
   }
 
   useEffect(
     () => {
-      updateCards()
+      setTimeout(() => {
+        updateCards()
+      }, 400);
     }, []
   )
 
   const [isShuffling, setIsShuffling] = useState(false)
+  const [wildCardShowing, setWildCardShowing] = useState(false)
   const shuffle = () => {
     console.log("shuffle")
     if(!isShuffling){
       setIsShuffling(true)
       setTimeout(() => {
         updateCards()
-      }, 500);
+      }, 400);
       setTimeout(() => {
         setIsShuffling(false)
       }, 1200);
     }
   }
 
+  const drawWildCard = () => {
+    setWildCardShowing(!wildCardShowing)
+    // if(!wildCardShowing){
+    //   setWildCardShowing(true)
+    // } 
+  }
+
   return (
     <>
-      {/* <Card type="Technology" data={cardData.Technology} />
-      <Card type="Behaviour" data={cardData.Behaviour} />
-      <Card type="Outcome" data={cardData.Outcome} /> */}
-      <SlimShady cardData={cardData} isShuffling={isShuffling} />
+      <DojoDuel cardData={cardData} isShuffling={isShuffling} wildCardShowing={wildCardShowing} />
 
       <img className='logo' src={logoImageURL} />
       <div className='button-container'>
-        <button className='lozenge white grey-hover' onClick={() => {shuffle()}}>
+      <button className='lozenge white grey-hover' onClick={() => {shuffle()}}>
           <span>Shuffle</span>
+        </button>
+        <button className='lozenge white grey-hover' onClick={() => {drawWildCard()}}>
+          <span>Wild Card</span>
         </button>
       </div>
 
       <div className='header'>
         <div className='flex-row'>
-          <h1>Dojo Duel</h1>
-          <p>A card game <br />like never before.</p>
+          {/* <h1>Dojo Duel</h1>
+          <p>A card game <br />like never before.</p> */}
         </div>
       </div>
     </>

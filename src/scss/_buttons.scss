@@ -166,17 +166,3 @@ p.underlined {
         }
     }
 }
-
-.button-container{
-    position: absolute;
-    bottom: 3em;
-
-    color: black;
-
-
-    .button{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
