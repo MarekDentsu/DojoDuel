@@ -51,7 +51,7 @@ export const DuelCard = (props) => {
         }
     }
     const showCard = () => {
-        gsap.to(cardRef.current.position, { duration: 0.8, y: 1.4, z: 1.0, ease: Power2.easeInOut })
+        gsap.to(cardRef.current.position, { duration: 0.8, y: 1.0, z: 0.8, ease: Power2.easeInOut })
         gsap.to(cardRef.current.rotation, { duration: 0.6, x: Math.PI * 0.67, ease: Power2.easeInOut })
         
     }
@@ -305,7 +305,7 @@ export const DuelCard = (props) => {
                         // debug
                         position={[0, 0, 0.02]}
                         rotation={[0, 0, Math.PI]}
-                        scale={[2, 3, 0.02]}
+                        scale={[2.01, 3, 0.02]}
                     >
                         <meshStandardMaterial
                             roughness={0.5}

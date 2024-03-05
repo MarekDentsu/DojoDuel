@@ -162,6 +162,22 @@ button {
                 }
             }
         }
+        
+        &.grey {
+            background-color: #646464;
+
+            &::before,
+            &::after {
+                background-color: black;
+            }
+
+            span{
+                mix-blend-mode: normal;
+                color: white;
+            }
+
+ 
+        }
     }
 
     &.simple {

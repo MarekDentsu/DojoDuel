@@ -3,7 +3,7 @@ export const data = {
         {
             name: "Artificial Intelligence",
             fact: "Not the type that comes from an honorary degree. Machines that can think, learn and ‘adapt’ like humans.",
-            example: "To showcase how Serena Williams' tennis game has evolved over time, Nike used AI to create a simulated game between 18yo Serena and 36yo Serena. "
+            example: "To showcase how Serena Williams' game has evolved, Nike used AI to create a simulated game between Serena from 1999 and 2017."
         },
         {
             name: "Spatial Computing",
@@ -76,12 +76,12 @@ export const data = {
             name: "Friction",
             fact: "No pain, no gain! While making something easier is an effective way to influence behaviour, sometimes it is impossible to eliminate friction.",
             whatIf: "You designed your idea around unavoidable friction and turned it into a moment of delight?",
-            example: "IKEA took flat packs to a whole new level by creating simple – and visual – customer instructions led by Ikea Man."
+            example: "IKEA took flat packs to a whole new level, saving customers money. But it also meant customers built their own furniture. So they created simple, easy to follow instructions led by Ikea Man."
         },
         {
             name: "Social Proof",
             fact: "People are influenced by others and copy their actions when deciding how to behave in a given situation. ",
-            whatIf: "You created the illusion of popularity by making your idea visible. For example, you found a way to showcase the number of customers you've served, products you've sold or users you have.",
+            whatIf: "You created the illusion of popularity by making your idea visible.For example, you found a way to showcase the number of customers you've served, products you've sold or users you have.",
             example: "iPod wearers were (and still are) easily identifiable by their striking white headphones."
         },
         {
@@ -151,7 +151,10 @@ export const data = {
         }
     ],
     WildCard: [
-
+        {
+            name: "Make Headlines",
+            fact: "Get people talking! Start by writing a hard-hitting press release about your product or service, and work backwards from there.",
+        },
         {
             name: "The Wifi Is Down",
             fact: "Mayday, mayday – the internet is down! Adjust your idea to make it work without any use of the WWW.",
@@ -169,8 +172,8 @@ export const data = {
             fact: "Uh oh! Your new CEO has cut your budget by 50%. Make your idea lean.",
         },
         {
-            name: "Make it Accessible",
-            fact: "Did you know, 15% of people have a disability. Make your idea accessible to those with a visual, auditory or mobility impairment.",
+            name: "Accessible To All",
+            fact: "15% of people have a disability. Make your idea accessible to people with visual, auditory or mobility impairments.",
         },
         {
             name: "Concerned Activists",
@@ -183,10 +186,6 @@ export const data = {
         {
             name: "Guard Your Reputation",
             fact: "Your brand's reputation has come under threat. Consider how your idea would respond to this.",
-        },
-        {
-            name: "Empower Marginalised Communities",
-            fact: "Think about a disadvantaged group of people and make them central to your idea's success.",
-        },
+        }
     ]
 }

@@ -87,13 +87,13 @@ export default function SlimShady(props) {
             <SetState />
             {<SoftShadows {...SoftShadowConfig} />}
             <ambientLight intensity={1} />
-            <directionalLight position={[2, 10, 2]} intensity={0.5} />
+            <directionalLight position={[2, 10, -2]} intensity={0.75} />
             <directionalLight castShadow position={[2, 10, 2]} intensity={0.5} shadow-mapSize={1024}>
                 <orthographicCamera attach="shadow-camera" args={[-5, 10, -5, 8, -5, 50]} />
             </directionalLight>
-            <pointLight position={[-3, 5, 2]} color="white" intensity={15.0} />
-            <pointLight position={[0, 5, 2]} color="white" intensity={15.0} />
-            <pointLight position={[3, 5, 2]} color="white" intensity={15.0} />
+            <pointLight position={[-3, 4, 0]} color="white" intensity={10.0} />
+            <pointLight position={[0, 4, 0]} color="white" intensity={10.0} />
+            <pointLight position={[3, 4, 0]} color="white" intensity={10.0} />
 
 
             <group position={[0,0,-0.5]}>
@@ -135,7 +135,7 @@ export default function SlimShady(props) {
                         data={props.cardData.WildCard}
                         index={3}
                         position={[4.4, -0.4, 0]}
-                        color={"#f4a3a5"}
+                        color={"#f6a3a5"}
                     />
                 </group>
             </group>

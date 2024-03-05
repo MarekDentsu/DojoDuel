@@ -53,13 +53,17 @@ function App() {
         // console.log(cardData);
     }
 
-    // useEffect(
-    //   () => {
-    //     setTimeout(() => {
-    //       updateCards()
-    //     }, 400);
-    //   }, []
-    // )
+    const [smallScreen, setSmallScreen] = useState(false)
+    useEffect(
+        () => {
+            if(size.width < 1024 && !smallScreen){
+                setSmallScreen(true)
+            } 
+            if(size.width >= 1024 && smallScreen){
+                setSmallScreen(false)
+            } 
+        }, [size]
+    )
 
     const [isShuffling, setIsShuffling] = useState(false)
     const [wildCardShowing, setWildCardShowing] = useState(false)
@@ -96,19 +100,6 @@ function App() {
             <DojoDuel cardData={cardData} isShuffling={isShuffling} wildCardShowing={wildCardShowing} />
 
             <img className='logo' src={logoImageURL} />
-            <div className={`button-container${hideInstructions ? '' : 'hidden'}`}>
-                <div>
-                    <button className='lozenge white grey-hover' onClick={() => { shuffle() }}>
-                        <span>Shuffle</span>
-                    </button>
-                    <button className='lozenge white grey-hover' onClick={() => { drawWildCard() }}>
-                        <span>Wild Card</span>
-                    </button>
-                </div>
-                <button className='toggle-instructions lozenge pink' onClick={() => { toggleInstructions() }}>
-                    <span>Instructions</span>
-                </button>
-            </div>
 
             <div className='header'>
                 <div className='flex-row'>
@@ -127,29 +118,44 @@ function App() {
                     <div className='flex two-col'>
                         <div className='col'>
                             <h1>A card game <br />like never before.</h1>
-                            <p>One that rewards the risk-takers,
-                                and supports the storytellers.
-                                One that’ll push you to ideate – within moving constraints.
-                                All while discovering new innovations and possibilities. </p>
-
-                            <p>Get set to park your serious side
-                                and unleash your creative spirit. </p>
-
+                            <p>One that rewards the risk-takers, and supports the storytellers. One that’ll push you to ideate – within moving constraints. All while discovering new innovations and possibilities. </p>
+                            <p>Get set to park your serious side and unleash your creative spirit. </p>
                             <button className='lozenge white' onClick={() => { toggleInstructions() }}>
                                 <span>Let’s Dojo.</span>
                             </button>
                         </div>
                         <div className='col pink'>
                             <h2>How to Duel</h2>
+                            <p>3 Then, just when you think you’ve cracked it, deal yourself a Wild Card. This could strengthen your idea, or injure it. Think fast!</p>
                             <ol>
                                 <li>To start, you’ll be dealt 3 cards: 1 Tech, 1 Behaviour and 1 Outcome.</li>
                                 <li>If used wisely, these cards should help you mould and refine your idea.</li>
-                                <li>Then, just when you think you’ve cracked it, your facilitator may throw down a Wild Card. This could strengthen your idea, or injure it. Think fast!</li>
+                                <li>Then, just when you think you’ve cracked it, deal yourself a Wild Card. This could strengthen your idea, or injure it. Think fast!</li>
                                 <li>After 10 brain-busting minutes, playtime ends and the duel begins.</li>
                                 <li>All players must pitch their ideas to the wider group – revealing the cards they were dealt, and why they should be crowned champion.</li>
                             </ol>
                         </div>
                         <div onClick={() => { toggleInstructions() }} className='close button-simple opacity-hover'><span>+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div className={`button-container${hideInstructions ? '' : ' hidden'}`}>
+                <button className='toggle-instructions lozenge grey' onClick={() => { toggleInstructions() }}>
+                    <span>Instructions</span>
+                </button>
+                <button className='shuffle lozenge white grey-hover' onClick={() => { shuffle() }}>
+                    <span>Shuffle</span>
+                </button>
+                <button className='lozenge white pink' onClick={() => { drawWildCard() }}>
+                    <span>Wild Card</span>
+                </button>
+            </div>
+
+            <div className={`small-screen-message${smallScreen ? '' : ' hidden'}`}>
+                <div className='flex flex-center'>
+                    <div>
+                        <h2>This site works best on a larger screen</h2>
                     </div>
                 </div>
             </div>
