@@ -91,9 +91,9 @@ export default function SlimShady(props) {
             <directionalLight castShadow position={[2, 10, 2]} intensity={0.5} shadow-mapSize={1024}>
                 <orthographicCamera attach="shadow-camera" args={[-5, 10, -5, 8, -5, 50]} />
             </directionalLight>
-            <pointLight position={[-3, 5, 2]} color="white" intensity={5.0} />
-            <pointLight position={[0, 5, 2]} color="white" intensity={5.0} />
-            <pointLight position={[3, 5, 2]} color="white" intensity={5.0} />
+            <pointLight position={[-3, 5, 2]} color="white" intensity={15.0} />
+            <pointLight position={[0, 5, 2]} color="white" intensity={15.0} />
+            <pointLight position={[3, 5, 2]} color="white" intensity={15.0} />
 
 
             <group position={[0,0,-0.5]}>
@@ -110,7 +110,7 @@ export default function SlimShady(props) {
                         data={props.cardData.Technology}
                         index={0}
                         position={[-2.2, -0.4, 0]}
-                        color={"#bbb"}
+                        color={"#646464"} dark
                     />
                     <DuelCard
                         isShuffling={props.isShuffling}
@@ -118,7 +118,7 @@ export default function SlimShady(props) {
                         data={props.cardData.Behaviour}
                         index={1}
                         position={[0, -0.4, 0]}
-                        color={"#555"} dark
+                        color={"#191919"} dark
                     />
                     <DuelCard
                         isShuffling={props.isShuffling}
@@ -126,7 +126,7 @@ export default function SlimShady(props) {
                         data={props.cardData.Outcome}
                         index={2}
                         position={[2.2, -0.4, 0]}
-                        color={"#ddd"}
+                        color={"#e8e8e8"}
                     />
                     <DuelCard
                         isShuffling={props.isShuffling}

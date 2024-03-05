@@ -20,10 +20,10 @@ export const DuelCard = (props) => {
         }
     }
 
-    textures.front.canvas.width = 600
-    textures.front.canvas.height = 900
-    textures.back.canvas.width = 600
-    textures.back.canvas.height = 900
+    textures.front.canvas.width = 800
+    textures.front.canvas.height = 1200
+    textures.back.canvas.width = 800
+    textures.back.canvas.height = 1200
 
     const setContexts = () => {
         [textures.front, textures.back].map(texture => {
@@ -31,12 +31,13 @@ export const DuelCard = (props) => {
         })
     }
 
+    const styleMultiplier = 1.0
     const styles = {
-        p: 44 * 0.75,
-        h3: 30 * 0.75,
-        h1: 100 * 0.75,
-        padding: 60 * 0.75,
-        paddingTop: 100 * 0.75,
+        p: 44 * styleMultiplier,
+        h3: 30 * styleMultiplier,
+        h1: 100 * styleMultiplier,
+        padding: 60 * styleMultiplier,
+        paddingTop: 100 * styleMultiplier,
     }
 
     /**
@@ -230,7 +231,7 @@ export const DuelCard = (props) => {
         // draw logo on card
         const logoImage = document.querySelector(".logo-image")
         if(logoImage){
-            textures.back.ctx.drawImage(logoImage, styles.padding, textures.back.canvas.height - styles.padding - (230 * 0.75), 120 * 0.75, 230 * 0.75)
+            textures.back.ctx.drawImage(logoImage, styles.padding, textures.back.canvas.height - styles.padding - (230 * styleMultiplier), 120 * styleMultiplier, 230 * styleMultiplier)
         }
 
 
