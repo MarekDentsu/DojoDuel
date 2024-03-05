@@ -126,7 +126,6 @@ function App() {
                         </div>
                         <div className='col pink'>
                             <h2>How to Duel</h2>
-                            <p>3 Then, just when you think you’ve cracked it, deal yourself a Wild Card. This could strengthen your idea, or injure it. Think fast!</p>
                             <ol>
                                 <li>To start, you’ll be dealt 3 cards: 1 Tech, 1 Behaviour and 1 Outcome.</li>
                                 <li>If used wisely, these cards should help you mould and refine your idea.</li>
