@@ -20,7 +20,7 @@ button {
     &.lozenge{
         position: relative;
         border: 0;
-        font-size: 0.8em;
+        font-size: 1em;
         border-radius: 2.2em;
         margin: 0;
         padding: 1.1em 3.6em;
@@ -124,6 +124,41 @@ button {
                 span{
                     mix-blend-mode: normal;
                     color: black;
+                }
+            }
+        }
+        
+        &.pink {
+            background-color: #f4a3a5;
+
+            &::before,
+            &::after {
+                background-color: black;
+            }
+
+            &.grey-hover{
+                &::before,
+                &::after {
+                    background-color: #646464;
+                }
+
+                &:hover {
+                    span{
+                        color: #fff;
+                        mix-blend-mode: difference;
+                    }
+                }
+            }
+
+            span{
+                mix-blend-mode: normal;
+                color: black;
+            }
+
+            &:hover {
+                span{
+                    color: #fff;
+                    // mix-blend-mode: difference;
                 }
             }
         }

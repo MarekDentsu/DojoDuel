@@ -19,7 +19,7 @@ export default function SlimShady(props) {
     }
 
     const cameraConfig = {
-        position: [0, 6, 4], 
+        position: [0, 5.5, 4], 
         fov: 50
     }
 
@@ -35,15 +35,16 @@ export default function SlimShady(props) {
         }
     }
 
-
+    /**
+     * GET CANVAS STATE
+     * This also gives access to the camera
+     */
     const [canvasState, setCanvasState] = useState(null)
-
     const SetState = () => {
         return(
             useThree((state) => {
                 if(!canvasState){
                     setCanvasState(state)
-                    // console.log(state);
                 }
             })
         )
@@ -86,22 +87,22 @@ export default function SlimShady(props) {
             <SetState />
             {<SoftShadows {...SoftShadowConfig} />}
             <ambientLight intensity={1} />
-            <directionalLight castShadow position={[2, 10, 2]} intensity={1.25} shadow-mapSize={1024}>
+            <directionalLight position={[2, 10, 2]} intensity={0.5} />
+            <directionalLight castShadow position={[2, 10, 2]} intensity={0.5} shadow-mapSize={1024}>
                 <orthographicCamera attach="shadow-camera" args={[-5, 10, -5, 8, -5, 50]} />
             </directionalLight>
             <pointLight position={[-3, 5, 2]} color="white" intensity={5.0} />
+            <pointLight position={[0, 5, 2]} color="white" intensity={5.0} />
             <pointLight position={[3, 5, 2]} color="white" intensity={5.0} />
 
 
             <group position={[0,0,-0.5]}>
 
-                {/* SHADOW PLANE */}
                 <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-                    <planeGeometry args={[20, 20]} />
+                    <planeGeometry args={[10, 10]} />
                     <shadowMaterial transparent={false} opacity={0.2} />
                 </mesh>
 
-                {/* <Bounds fit clip observe margin={0.9}> */}
                 <group ref={cardsRef}>
                     <DuelCard
                         isShuffling={props.isShuffling}
@@ -137,7 +138,6 @@ export default function SlimShady(props) {
                         color={"#f4a3a5"}
                     />
                 </group>
-                {/* </Bounds> */}
             </group>
         </Canvas>
     )

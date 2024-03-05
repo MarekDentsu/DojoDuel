@@ -1,6 +1,6 @@
 body {
   color: white;
-  font-size: 26px;
+  font-size: 21px;
   line-height: 1;
   font-family: 'StabilGrotesk';
 }
@@ -18,12 +18,10 @@ h3 {
   font-size: 1.6em;
 }
 
-h1 {
-  font-size: 3.5em;
-}
-
-h2 {
+h1,h2 {
   font-size: 2.67em;
+  font-weight: 500;
+  letter-spacing: -0.03em;
 }
 
 p,
@@ -50,7 +48,7 @@ button {
     margin-top: 2em;
   }
 
-  h2 {
+  h1,h2 {
     margin-top: 2em;
   }
 
@@ -65,7 +63,7 @@ button {
 
 @media only screen and (max-width: 1920px) {
   body {
-    font-size: 24px;
+    font-size: 21px;
   }
 }
 
@@ -78,10 +76,6 @@ button {
 @media only screen and (max-width: 1280px) {
   body {
     font-size: 18px;
-  }
-
-  h1 {
-    font-size: 3.0em;
   }
 }
 
@@ -101,9 +95,7 @@ button {
   body {
     font-size: 2.8vw;
   }
-  h1 {
-    font-size: 2.5em;
-  }
+  
 }
 
 @media only screen and (max-width: 600px) {
